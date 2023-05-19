@@ -1,9 +1,6 @@
 # Gruvbox color theme configuration for Tmux
 
-Theme with 'retro groove' flavor for [Tmux][github-tmux], based on Pavel Pertsev's [Gruvbox colorscheme][github-gruvbox].
-
-| Dark theme | Light theme |
-|---|---|
+Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based on Pavel Pertsev's [Gruvbox colorscheme](https://github.com/morhetz/gruvbox).
 
 ## Installation
 ### Install manually
@@ -22,6 +19,40 @@ set -g @tmux-gruvbox 'dark' # or 'light'
 
 Hit `prefix + I` to fetch the plugin and source it. Your Tmux should be updated with the theme at this point.
 
-[github-tmux]: https://github.com/tmux/tmux
-[github-grovbox]: https://github.com/morhetz/gruvbox
+## Background
+### Dark (default)
+
+```tmux
+set -g @plugin-gruvbox-background 'dark'
+```
+
+![gruvbox dark](./gruvbox-dark.png)
+
+### Light (default)
+
+```tmux
+set -g @plugin-gruvbox-background 'light'
+```
+
+![gruvbox light](./gruvbox-light.png)
+
+## Plugin support
+### [tmux-netspeed](https://github.com/wfxr/tmux-net-speed)
+
+```tmux
+set -g @tmux-gruvbox-show-upload-speed true
+set -g @tmux-gruvbox-show-download-speed true
+```
+
+### [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+
+```tmux
+set -g @tmux-gruvbox-show-prefix-highlight true
+```
+
+### [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery)
+
+```tmux
+set -g @tmux-gruvbox-show-battery true
+```
 
