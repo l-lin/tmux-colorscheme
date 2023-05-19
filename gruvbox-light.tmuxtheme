@@ -1,0 +1,12 @@
+theme_bg='#fbf1c7'
+theme_fg='#3c3836'
+theme_black='#fbf1c7'
+theme_red='#cc241d'
+theme_green='#98971a'
+theme_yellow='#d79921'
+theme_blue='#458588'
+theme_magenta='#b16286'
+theme_cyan='#689d6a'
+theme_white='#7c6f64'
+theme_gray='#928374'
+
