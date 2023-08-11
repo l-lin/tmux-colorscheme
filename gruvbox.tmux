@@ -55,7 +55,7 @@ set_status_bar() {
     status_bar="#{prefix_highlight}${status_bar}"
   fi
   if "${show_pomodoro}"; then
-    status_bar="${status_bar} #{pomodoro_status}"
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_gray}]#{pomodoro_status}"
   fi
   if "${show_download_speed}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_cyan}]󰅢 #{download_speed}"
