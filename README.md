@@ -56,3 +56,9 @@ set -g @tmux-gruvbox-show-prefix-highlight true
 set -g @tmux-gruvbox-show-battery true
 ```
 
+### [tmux-pomodoro-plus](https://github.com/olimorris/tmux-pomodoro-plus)
+
+```tmux
+set -g @tmux-gruvbox-show-pomodoro true
+```
+

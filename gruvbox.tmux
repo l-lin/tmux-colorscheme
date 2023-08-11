@@ -48,10 +48,14 @@ set_status_bar() {
   show_download_speed="$(get '@tmux-gruvbox-show-download-speed' false)"
   show_prefix_highlight="$(get '@tmux-gruvbox-show-prefix-highlight' false)"
   show_battery="$(get '@tmux-gruvbox-show-battery' false)"
+  show_pomodoro="$(get '@tmux-gruvbox-show-pomodoro' false)"
 
   status_bar="#[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg},fg=${theme_cyan}]"
   if "${show_prefix_highlight}"; then
     status_bar="#{prefix_highlight}${status_bar}"
+  fi
+  if "${show_pomodoro}"; then
+    status_bar="${status_bar} #{pomodoro_status}"
   fi
   if "${show_download_speed}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_cyan}]󰅢 #{download_speed}"
