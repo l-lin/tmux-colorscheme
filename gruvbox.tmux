@@ -50,7 +50,7 @@ set_status_bar() {
   show_battery="$(get '@tmux-gruvbox-show-battery' false)"
   show_pomodoro="$(get '@tmux-gruvbox-show-pomodoro' false)"
 
-  status_bar="#[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg},fg=${theme_cyan}]"
+  status_bar="#[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
   if "${show_prefix_highlight}"; then
     status_bar="#{prefix_highlight}${status_bar}"
   fi
