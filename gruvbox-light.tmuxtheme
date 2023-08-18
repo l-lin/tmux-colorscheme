@@ -9,4 +9,4 @@ theme_magenta='#b16286'
 theme_cyan='#689d6a'
 theme_white='#7c6f64'
 theme_gray='#928374'
-
+theme_accent='#d79921'

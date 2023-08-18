@@ -2,10 +2,12 @@
 
 plugin_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-tmux_theme_option="@tmux-gruvbox-background"
-tmux_theme_default_background="dark"
+colorscheme_option="@tmux-colorscheme"
+colorscheme_option_default="kanagawa"
+colorscheme_background_option="@tmux-colorscheme-background"
+colorscheme_background_option_default="dark"
 
-get_background() {
+get_option() {
   local option="$1"
   local default_value="$2"
   local option_value
@@ -44,11 +46,11 @@ set_status_bar() {
   local show_battery
   local status_bar
 
-  show_upload_speed="$(get '@tmux-gruvbox-show-upload-speed' false)"
-  show_download_speed="$(get '@tmux-gruvbox-show-download-speed' false)"
-  show_prefix_highlight="$(get '@tmux-gruvbox-show-prefix-highlight' false)"
-  show_battery="$(get '@tmux-gruvbox-show-battery' false)"
-  show_pomodoro="$(get '@tmux-gruvbox-show-pomodoro' false)"
+  show_upload_speed="$(get '@tmux-colorscheme-show-upload-speed' false)"
+  show_download_speed="$(get '@tmux-colorscheme-show-download-speed' false)"
+  show_prefix_highlight="$(get '@tmux-colorscheme-show-prefix-highlight' false)"
+  show_battery="$(get '@tmux-colorscheme-show-battery' false)"
+  show_pomodoro="$(get '@tmux-colorscheme-show-pomodoro' false)"
 
   status_bar="#[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
   if "${show_prefix_highlight}"; then
@@ -72,8 +74,10 @@ set_status_bar() {
 }
 
 main() {
-  local theme
-  theme=$(get_background "${tmux_theme_option}" "${tmux_theme_default_background}")
+  local colorscheme
+  colorscheme=$(get_option "${colorscheme_option}" "${colorscheme_option_default}")
+  local background
+  background=$(get_option "${colorscheme_background_option}" "${colorscheme_background_option_default}")
 
   # Aggregate all commands in one array
   local tmux_commands=()
@@ -81,7 +85,7 @@ main() {
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # shellcheck source=catppuccin-frappe.tmuxtheme
-  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${plugin_dir}/gruvbox-${theme}.tmuxtheme")"
+  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${plugin_dir}/${colorscheme}-${background}.tmuxtheme")"
 
   set status "on"
   set status-justify "left"
@@ -92,25 +96,25 @@ main() {
   set status-style "bg=${theme_bg},fg=${theme_fg}"
 
   # Pane border
-  set pane-active-border-style "fg=${theme_yellow}"
+  set pane-active-border-style "fg=${theme_accent}"
   set pane-border-style "fg=${theme_gray}"
 
   # Tmux message displayed (e.g. "Reloaded")
-  set message-style "bg=${theme_bg},fg=${theme_yellow}"
+  set message-style "bg=${theme_bg},fg=${theme_accent}"
 
   # Clock (`prefix + t`)
-  setw clock-mode-colour "${theme_yellow}"
+  setw clock-mode-colour "${theme_accent}"
 
   set_status_bar
 
   # Window
-  setw window-status-current-format "#[bg=${theme_yellow},fg=${theme_black},bold] #I #W#{?window_zoomed_flag,*Z,} "
+  setw window-status-current-format "#[bg=${theme_accent},fg=${theme_black},bold] #I #W#{?window_zoomed_flag,*Z,} "
   setw window-status-format "#[bg=${theme_bg},fg=${theme_fg}] #I #W "
 
   # Prefix color scheme
-  set @prefix_highlight_bg "${theme_yellow}"
+  set @prefix_highlight_bg "${theme_accent}"
   set @prefix_highlight_fg "${theme_black}"
-  set @prefix_highlight_copy_mode_attr "bg=${theme_yellow},fg=${theme_black}"
+  set @prefix_highlight_copy_mode_attr "bg=${theme_accent},fg=${theme_black}"
   set @prefix_highlight_show_copy_mode 'on'
   set @prefix_highlight_output_prefix ''
   set @prefix_highlight_output_suffix ''

@@ -1,6 +1,5 @@
-# Gruvbox color theme configuration for Tmux
+# Colorscheme theme configuration for Tmux
 
-Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based on Pavel Pertsev's [Gruvbox colorscheme](https://github.com/morhetz/gruvbox).
 
 ## Installation
 ### Install manually
@@ -13,22 +12,26 @@ Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based
 Add plugin to the list of TPM plugins in `.tmux.conf` and select desired theme
 
 ```bash
-set -g @plugin 'l-lin/tmux-gruvbox'
-set -g @tmux-gruvbox 'dark' # or 'light'
+set -g @plugin 'l-lin/tmux-colorscheme'
+set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox'
+set -g @tmux-colorscheme-background 'dark' # or 'light'
 ```
 
 Hit `prefix + I` to fetch the plugin and source it. Your Tmux should be updated with the theme at this point.
 
-## Background
+## Gruvbox
+
+Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based on Pavel Pertsev's [Gruvbox colorscheme](https://github.com/morhetz/gruvbox).
+
 ### Dark (default)
 
 ```tmux
-set -g @plugin-gruvbox-background 'dark'
+set -g @plugin-colorscheme-background 'dark'
 ```
 
 ![gruvbox dark](./gruvbox-dark.png)
 
-### Light (default)
+### Light
 
 ```tmux
 set -g @plugin-gruvbox-background 'light'
@@ -40,25 +43,25 @@ set -g @plugin-gruvbox-background 'light'
 ### [tmux-netspeed](https://github.com/wfxr/tmux-net-speed)
 
 ```tmux
-set -g @tmux-gruvbox-show-upload-speed true
-set -g @tmux-gruvbox-show-download-speed true
+set -g @tmux-colorscheme-show-upload-speed true
+set -g @tmux-colorscheme-show-download-speed true
 ```
 
 ### [tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
 
 ```tmux
-set -g @tmux-gruvbox-show-prefix-highlight true
+set -g @tmux-colorscheme-show-prefix-highlight true
 ```
 
 ### [tmux-plugins/tmux-battery](https://github.com/tmux-plugins/tmux-battery)
 
 ```tmux
-set -g @tmux-gruvbox-show-battery true
+set -g @tmux-colorscheme-show-battery true
 ```
 
 ### [tmux-pomodoro-plus](https://github.com/olimorris/tmux-pomodoro-plus)
 
 ```tmux
-set -g @tmux-gruvbox-show-pomodoro true
+set -g @tmux-colorscheme-show-pomodoro true
 ```
 
