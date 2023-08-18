@@ -4,8 +4,6 @@ plugin_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 colorscheme_option="@tmux-colorscheme"
 colorscheme_option_default="kanagawa"
-colorscheme_background_option="@tmux-colorscheme-background"
-colorscheme_background_option_default="dark"
 
 get_option() {
   local option="$1"
@@ -76,8 +74,6 @@ set_status_bar() {
 main() {
   local colorscheme
   colorscheme=$(get_option "${colorscheme_option}" "${colorscheme_option_default}")
-  local background
-  background=$(get_option "${colorscheme_background_option}" "${colorscheme_background_option_default}")
 
   # Aggregate all commands in one array
   local tmux_commands=()
@@ -85,7 +81,7 @@ main() {
   # NOTE: Pulling in the selected theme by the theme that's being set as local
   # variables.
   # shellcheck source=catppuccin-frappe.tmuxtheme
-  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${plugin_dir}/${colorscheme}-${background}.tmuxtheme")"
+  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${plugin_dir}/${colorscheme}.tmuxtheme")"
 
   set status "on"
   set status-justify "left"

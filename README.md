@@ -13,20 +13,27 @@ Add plugin to the list of TPM plugins in `.tmux.conf` and select desired theme
 
 ```bash
 set -g @plugin 'l-lin/tmux-colorscheme'
-set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox'
-set -g @tmux-colorscheme-background 'dark' # or 'light'
+set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox-dark' or 'gruvbox-light'
 ```
 
 Hit `prefix + I` to fetch the plugin and source it. Your Tmux should be updated with the theme at this point.
+
+## Kanagawa
+
+Dark colorscheme inspired by the colors of the famous painting by Katsushika Hokusai, based on https://github.com/rebelot/kanagawa.nvim.
+
+```tmux
+set -g @plugin-colorscheme 'kanagawa'
+```
 
 ## Gruvbox
 
 Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based on Pavel Pertsev's [Gruvbox colorscheme](https://github.com/morhetz/gruvbox).
 
-### Dark (default)
+### Dark
 
 ```tmux
-set -g @plugin-colorscheme-background 'dark'
+set -g @plugin-colorscheme 'gruvbox-dark'
 ```
 
 ![gruvbox dark](./gruvbox-dark.png)
@@ -34,7 +41,7 @@ set -g @plugin-colorscheme-background 'dark'
 ### Light
 
 ```tmux
-set -g @plugin-gruvbox-background 'light'
+set -g @plugin-gruvbox 'gruvbox-light'
 ```
 
 ![gruvbox light](./gruvbox-light.png)
