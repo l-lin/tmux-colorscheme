@@ -107,7 +107,7 @@ main() {
 
   # Prefix color scheme
   set @prefix_highlight_bg "${theme_accent}"
-  set @prefix_highlight_fg "${theme_fg}"
+  set @prefix_highlight_fg "${theme_accent_fg}"
   set @prefix_highlight_copy_mode_attr "bg=${theme_accent},fg=${theme_fg}"
   set @prefix_highlight_show_copy_mode 'on'
   set @prefix_highlight_output_prefix ''
