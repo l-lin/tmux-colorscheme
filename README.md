@@ -26,6 +26,15 @@ Dark colorscheme inspired by the colors of the famous painting by Katsushika Hok
 set -g @plugin-colorscheme 'kanagawa'
 ```
 
+## Github
+### Light
+
+Github light colorscheme.
+
+```tmux
+set -g @plugin-colorscheme 'github-light'
+```
+
 ## Gruvbox
 
 Theme with 'retro groove' flavor for [Tmux](https://github.com/tmux/tmux), based on Pavel Pertsev's [Gruvbox colorscheme](https://github.com/morhetz/gruvbox).
