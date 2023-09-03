@@ -102,13 +102,13 @@ main() {
   set_status_bar
 
   # Window
-  setw window-status-current-format "#[bg=${theme_accent},fg=${theme_accent_fg},bold] #I #W#{?window_zoomed_flag,*Z,} "
+  setw window-status-current-format "#[bg=${theme_accent_bg},fg=${theme_accent_fg}] #I #W#{?window_zoomed_flag,*Z,} "
   setw window-status-format "#[bg=${theme_bg},fg=${theme_fg}] #I #W "
 
   # Prefix color scheme
-  set @prefix_highlight_bg "${theme_accent}"
+  set @prefix_highlight_bg "${theme_accent_bg}"
   set @prefix_highlight_fg "${theme_accent_fg}"
-  set @prefix_highlight_copy_mode_attr "bg=${theme_accent},fg=${theme_fg}"
+  set @prefix_highlight_copy_mode_attr "bg=${theme_accent_bg},fg=${theme_accent_fg}"
   set @prefix_highlight_show_copy_mode 'on'
   set @prefix_highlight_output_prefix ''
   set @prefix_highlight_output_suffix ''
