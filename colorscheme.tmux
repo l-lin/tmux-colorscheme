@@ -50,7 +50,6 @@ set_status_bar() {
   show_battery="$(get '@tmux-colorscheme-show-battery' false)"
   show_pomodoro="$(get '@tmux-colorscheme-show-pomodoro' false)"
 
-  status_bar="#[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
   if "${show_prefix_highlight}"; then
     status_bar="#{prefix_highlight}${status_bar}"
   fi
@@ -66,6 +65,7 @@ set_status_bar() {
   if "${show_battery}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_green}]#{battery_icon_charge} #{battery_percentage}"
   fi
+  status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
 
   set status-left ""
   set status-right "${status_bar}"
