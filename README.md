@@ -13,7 +13,7 @@ Add plugin to the list of TPM plugins in `.tmux.conf` and select desired theme
 
 ```bash
 set -g @plugin 'l-lin/tmux-colorscheme'
-set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox-dark' or 'gruvbox-light'
+set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox-dark' or 'gruvbox-light' or 'github-light'
 ```
 
 Hit `prefix + I` to fetch the plugin and source it. Your Tmux should be updated with the theme at this point.
@@ -79,5 +79,13 @@ set -g @tmux-colorscheme-show-battery true
 
 ```tmux
 set -g @tmux-colorscheme-show-pomodoro true
+```
+
+### [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
+
+```
+set -g @tmux-colorscheme-show-cpu true
+set -g @tmux-colorscheme-show-cpu-temp true
+set -g @tmux-colorscheme-show-ram true
 ```
 

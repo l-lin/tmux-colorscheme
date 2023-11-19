@@ -42,19 +42,26 @@ set_status_bar() {
   local show_download_speed
   local show_prefix_highlight
   local show_battery
+  local show_cpu
+  local show_cpu_temp
+  local show_ram
+  local show_pomodoro
   local status_bar
 
   show_upload_speed="$(get '@tmux-colorscheme-show-upload-speed' false)"
   show_download_speed="$(get '@tmux-colorscheme-show-download-speed' false)"
   show_prefix_highlight="$(get '@tmux-colorscheme-show-prefix-highlight' false)"
   show_battery="$(get '@tmux-colorscheme-show-battery' false)"
+  show_cpu="$(get '@tmux-colorscheme-show-cpu' false)"
+  show_cpu_temp="$(get '@tmux-colorscheme-show-cpu-temp' false)"
+  show_ram="$(get '@tmux-colorscheme-show-ram' false)"
   show_pomodoro="$(get '@tmux-colorscheme-show-pomodoro' false)"
 
   if "${show_prefix_highlight}"; then
     status_bar="#{prefix_highlight}${status_bar}"
   fi
   if "${show_pomodoro}"; then
-    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_gray}]#{pomodoro_status}"
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_red}]#{pomodoro_status}"
   fi
   if "${show_download_speed}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_cyan}]󰅢 #{download_speed}"
@@ -62,10 +69,28 @@ set_status_bar() {
   if "${show_upload_speed}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_blue}]󰅧 #{upload_speed}"
   fi
+  if "${show_cpu}"; then
+    set @cpu_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
+    set @cpu_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
+    set @cpu_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{cpu_fg_color} 󰍛 #{cpu_percentage}"
+  fi
+  if "${show_cpu_temp}"; then
+    set @cpu_temp_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
+    set @cpu_temp_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
+    set @cpu_temp_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{cpu_temp_fg_color}🌡️ #{cpu_temp}"
+  fi
+  if "${show_ram}"; then
+    set @ram_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
+    set @ram_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
+    set @ram_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{ram_fg_color} #{ram_percentage}"
+  fi
+  status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
   if "${show_battery}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_green}]#{battery_icon_charge} #{battery_percentage}"
   fi
-  status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
 
   set status-left ""
   set status-right "${status_bar}"
