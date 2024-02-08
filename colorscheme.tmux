@@ -138,6 +138,9 @@ main() {
   set @prefix_highlight_output_prefix ''
   set @prefix_highlight_output_suffix ''
 
+  # Set the mode style (copy mode)
+  set mode-style "bg=${theme_accent_bg},fg=${theme_accent_fg}"
+
   tmux "${tmux_commands[@]}"
 }
 
