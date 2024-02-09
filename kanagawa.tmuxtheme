@@ -13,3 +13,6 @@ theme_accent='#7e9cd8'
 theme_accent_bg='#7e9cd8'
 theme_accent_fg='#090618'
 theme_alt_bg='#2a2a37'
+theme_search_match_bg='#2d4f67'
+theme_search_match_fg='#dcd7ba'
+

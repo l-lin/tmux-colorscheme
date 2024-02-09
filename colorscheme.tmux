@@ -140,6 +140,9 @@ main() {
 
   # Set the mode style (copy mode)
   set mode-style "bg=${theme_accent_bg},fg=${theme_accent_fg}"
+  # Set the style for search
+  set copy-mode-match-style "bg=${theme_search_match_bg},fg=${theme_search_match_fg}"
+  set copy-mode-current-match-style "bg=${theme_search_match_bg},fg=${theme_search_match_fg} bold"
 
   tmux "${tmux_commands[@]}"
 }
