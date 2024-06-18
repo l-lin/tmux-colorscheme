@@ -61,31 +61,31 @@ set_status_bar() {
     status_bar="#{prefix_highlight}${status_bar}"
   fi
   if "${show_pomodoro}"; then
-    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_red}]#{pomodoro_status}"
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_blue}]#{pomodoro_status}"
   fi
   if "${show_download_speed}"; then
-    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_cyan}]󰅢 #{download_speed}"
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}]󰅢 #{download_speed}"
   fi
   if "${show_upload_speed}"; then
-    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_blue}]󰅧 #{upload_speed}"
-  fi
-  if "${show_cpu}"; then
-    set @cpu_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
-    set @cpu_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
-    set @cpu_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
-    status_bar="${status_bar} #{cpu_fg_color} 󰍛 #{cpu_percentage}"
-  fi
-  if "${show_cpu_temp}"; then
-    set @cpu_temp_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
-    set @cpu_temp_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
-    set @cpu_temp_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
-    status_bar="${status_bar} #{cpu_temp_fg_color}🌡️ #{cpu_temp}"
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}]󰅧 #{upload_speed}"
   fi
   if "${show_ram}"; then
-    set @ram_low_fg_color "#[bg=${theme_alt_bg},fg=${theme_fg}]"
-    set @ram_medium_fg_color "#[bg=${theme_alt_bg},fg=${theme_yellow}]"
-    set @ram_high_fg_color "#[bg=${theme_alt_bg},fg=${theme_red}]"
-    status_bar="${status_bar} #{ram_fg_color} #{ram_percentage}"
+    set @ram_low_fg_color "#[bg=${theme_bg},fg=${theme_fg}]"
+    set @ram_medium_fg_color "#[bg=${theme_bg},fg=${theme_yellow}]"
+    set @ram_high_fg_color "#[bg=${theme_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{ram_fg_color} ̛̛̛ #{ram_percentage}"
+  fi
+  if "${show_cpu}"; then
+    set @cpu_low_fg_color "#[bg=${theme_bg},fg=${theme_fg}]"
+    set @cpu_medium_fg_color "#[bg=${theme_bg},fg=${theme_yellow}]"
+    set @cpu_high_fg_color "#[bg=${theme_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{cpu_fg_color}  #{cpu_percentage}"
+  fi
+  if "${show_cpu_temp}"; then
+    set @cpu_temp_low_fg_color "#[bg=${theme_bg},fg=${theme_fg}]"
+    set @cpu_temp_medium_fg_color "#[bg=${theme_bg},fg=${theme_yellow}]"
+    set @cpu_temp_high_fg_color "#[bg=${theme_bg},fg=${theme_red}]"
+    status_bar="${status_bar} #{cpu_temp_fg_color} #{cpu_temp}"
   fi
   status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
   if "${show_battery}"; then
