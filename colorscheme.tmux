@@ -73,7 +73,7 @@ set_status_bar() {
     set @ram_low_fg_color "#[bg=${theme_bg},fg=${theme_fg}]"
     set @ram_medium_fg_color "#[bg=${theme_bg},fg=${theme_yellow}]"
     set @ram_high_fg_color "#[bg=${theme_bg},fg=${theme_red}]"
-    status_bar="${status_bar} #{ram_fg_color} ̛̛̛ #{ram_percentage}"
+    status_bar="${status_bar} #{ram_fg_color}  #{ram_percentage}"
   fi
   if "${show_cpu}"; then
     set @cpu_low_fg_color "#[bg=${theme_bg},fg=${theme_fg}]"
