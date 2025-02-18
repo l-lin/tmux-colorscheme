@@ -56,6 +56,7 @@ set_status_bar() {
   show_cpu_temp="$(get '@tmux-colorscheme-show-cpu-temp' false)"
   show_ram="$(get '@tmux-colorscheme-show-ram' false)"
   show_pomodoro="$(get '@tmux-colorscheme-show-pomodoro' false)"
+  show_date="$(get '@tmux-colorscheme-show-date' false)"
 
   if "${show_prefix_highlight}"; then
     status_bar="#{prefix_highlight}${status_bar}"
@@ -87,7 +88,9 @@ set_status_bar() {
     set @cpu_temp_high_fg_color "#[bg=${theme_bg},fg=${theme_red}]"
     status_bar="${status_bar} #{cpu_temp_fg_color} #{cpu_temp}"
   fi
-  status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
+  if "${show_date}"; then
+    status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_fg}] 󰃭 %Y-%m-%d %H:%M #[bg=${theme_bg}]"
+  fi
   if "${show_battery}"; then
     status_bar="${status_bar} #[bg=${theme_bg},fg=${theme_green}]#{battery_icon_charge} #{battery_percentage}"
   fi

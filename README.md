@@ -89,3 +89,8 @@ set -g @tmux-colorscheme-show-cpu-temp true
 set -g @tmux-colorscheme-show-ram true
 ```
 
+### date
+
+```
+set -g @tmux-colorscheme-show-date true
+```
