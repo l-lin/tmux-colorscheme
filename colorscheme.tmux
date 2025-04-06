@@ -106,8 +106,19 @@ main() {
   # Aggregate all commands in one array
   local tmux_commands=()
 
+  local xdg_theme_file="${XDG_DATA_HOME}/tmux-colorscheme/${colorscheme}.tmuxtheme"
+  local plugin_theme_file="${plugin_dir}/${colorscheme}.tmuxtheme"
+
+  # Check if theme file exists in XDG_DATA_HOME first, otherwise use plugin_dir.
+  local theme_file
+  if [[ -f "${xdg_theme_file}" ]]; then
+    theme_file="${xdg_theme_file}"
+  else
+    theme_file="${plugin_theme_file}"
+  fi
+
   # NOTE: Pulling in the selected theme by the theme that's being set as local variables.
-  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${plugin_dir}/${colorscheme}.tmuxtheme")"
+  source /dev/stdin <<<"$(sed -e "/^[^#].*=/s/^/local /" "${theme_file}")"
 
   set status "on"
   set status-justify "left"

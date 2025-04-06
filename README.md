@@ -14,6 +14,9 @@ Add plugin to the list of TPM plugins in `.tmux.conf` and select desired theme
 ```bash
 set -g @plugin 'l-lin/tmux-colorscheme'
 set -g @tmux-colorscheme 'kanagawa' # or 'gruvbox-dark' or 'gruvbox-light' or 'github-light'
+
+# You can also add your own colorscheme by putting in ${XDG_DATA_HOME}/tmux/tmux-colorscheme/my-colorscheme.tmuxtheme
+set -g @tmux-colorscheme 'my-colorscheme'
 ```
 
 Hit `prefix + I` to fetch the plugin and source it. Your Tmux should be updated with the theme at this point.
