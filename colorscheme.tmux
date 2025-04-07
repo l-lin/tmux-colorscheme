@@ -106,7 +106,7 @@ main() {
   # Aggregate all commands in one array
   local tmux_commands=()
 
-  local xdg_theme_file="${XDG_DATA_HOME}/tmux/tmux-colorscheme/${colorscheme}.tmuxtheme"
+  local xdg_theme_file="${XDG_DATA_HOME:-${HOME}/.local/share}/tmux/tmux-colorscheme/${colorscheme}.tmuxtheme"
   local plugin_theme_file="${plugin_dir}/${colorscheme}.tmuxtheme"
 
   # Check if theme file exists in XDG_DATA_HOME first, otherwise use plugin_dir.
